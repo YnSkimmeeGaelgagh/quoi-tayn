@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Quoi T'ayn?</title>
+</head>
+<body>
+    <div id="content">
+        <div id="content-border"></div>
+        <div id="cover-container">
+            <div id="buggane-cover">
+                <div id="buggane-cover-image"></div>
+                <div id="buggane-cover-name"></div>
+            </div>
+            <div id="message-cover">
+                <div id="message-text">Vel folt jiarg-bane ayd?</div>
+                <div id="astro-img-container">
+                    <div id="astro-img"></div>
+                </div>
+                <div id="message-reply">Cha nel!</div>
+            </div>
+        </div>
+        <div id="target-container">
+            <div id="target-cover">?</div>
+            <div id="target"></div>
+        </div>
+        <div id="top-bar">
+            <div id="title">Quoi T'ayn?</div>
+            <div id="hint">[click to inspect]</div>
+        </div>
+        <div id="game-board">
+            <div id="buggane-containers"></div>
+            <div id="life-container">
+                <div id="life-cover"></div>
+                <div id="life-description">Bree</div>
+                <div id="life-bar">
+                    <div class="life"></div>
+                    <div class="life"></div>
+                    <div class="life"></div>
+                    <div class="life"></div>
+                </div>
+            </div>
+            <div id="answer-container" class="cursor-blink">|</div>
+            <div id="buttons-container">
+                <div id="back-btn-container">
+                    <div id="back-btn"></div>
+                </div>
+                <div id="replay-btn-container">
+                    <div id="replay-btn">play again</div>
+                </div>
+                <div id="choice-container"></div>
+                <div id="ask-container">
+                    <div id="ask-btn" class="answer-btn">ask</div>
+                    <div id="change-btn" class="answer-btn">change</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="description.js"></script>
+    <script src="bugganeyn.js"></script>
+    <script src="ask.js"></script>
+    <script src="change.js"></script>
+</body>
+</html>
