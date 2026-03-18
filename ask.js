@@ -170,6 +170,7 @@ function hideMessage () {
     [...coverContainer.children].forEach(c => c.style.visibility = "hidden");
     document.body.style.overflow = "auto";
     if (guess) {
+        gameBoard.scrollIntoView({behavior: "smooth"});
         openDoors(check, hit);
         guess = false;
     };
