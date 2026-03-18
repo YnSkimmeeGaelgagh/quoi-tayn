@@ -1,5 +1,6 @@
 let loadedCheck = [];
 let gameOver = false;
+let transmitting = false;
 let targetBuggane;
 let bugganeNumber = -1;
 
@@ -158,6 +159,7 @@ const coverContainer = document.getElementById("cover-container");
 const gameBoard = document.getElementById("game-board");
 
 function hideMessage () {
+    if (transmitting || !gameStarted) return;
     if (gameOver) {
         answerContainer.textContent = "";
         choiceContainer.textContent = "";
@@ -180,6 +182,7 @@ coverContainer.addEventListener("click", hideMessage);
 
 let guess = false;
 function showMessage (reply) {
+    transmitting = false;
     document.body.style.overflow = "hidden";
     const messageCover = coverContainer.lastElementChild;
         messageCover.style.visibility = "visible";
@@ -202,6 +205,7 @@ function showMessage (reply) {
         messageReply.textContent = reply;
         switch (reply) {
             case "Transmitting...":
+                transmitting = true;
                 const signal = new Audio("audio/signal.mp3");
                 signal.play();
                 messageImg.classList.add("signal");
@@ -221,7 +225,7 @@ function showMessage (reply) {
             default:
                 messageImg.classList.add("response");
                 messageImg.style.background = "url('images/astro-neu.webp')";
-                messageReply.style.color = "var(--monster-jiarg)";
+                messageReply.style.color = "var(--monster-gorrym)";
         };
 };
 
