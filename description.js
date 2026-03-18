@@ -101,18 +101,23 @@ function nextChoice (event) {
 const backBtn = document.getElementById("back-btn");
     backBtn.addEventListener("click", previousChoice);
 
-function previousChoice () {
-    currentLevel--;
-    switch (currentLevel) {
-        case 0:
-            changeQuestion();
-            break;
-        default:
-            answerContainer.lastElementChild.remove();
-            choiceContainer.textContent = "";
-            loadedCheck.splice(currentLevel, 1);
-            presentOptions(previousChoices[currentLevel - 1]);
-    };
+function previousChoice (event) {
+    console.log(event.target)
+    event.target.classList.add("pressed-btn");
+    setTimeout(() => {
+        currentLevel--;
+        switch (currentLevel) {
+            case 0:
+                changeQuestion();
+                break;
+            default:
+                answerContainer.lastElementChild.remove();
+                choiceContainer.textContent = "";
+                loadedCheck.splice(currentLevel, 1);
+                presentOptions(previousChoices[currentLevel - 1]);
+        };
+        event.target.classList.remove("pressed-btn");
+    }, 300);
 };
 
 function animateButton (event) {
