@@ -129,6 +129,7 @@ function openDoors (check, hit) {
         if (doorCount > doorsToClose.length - 1) {
             loseLife();
             checkRemaining();
+            if (!gameOver) changeQuestion();
             return;
         };
         buggane.nextElementSibling.style.color = "var(--monster-doo)";
