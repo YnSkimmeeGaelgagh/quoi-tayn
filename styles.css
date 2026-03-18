@@ -57,7 +57,7 @@ body {
 }
 
 #cover-container {
-    visibility: hidden;
+    /* visibility: hidden; */
     position: absolute;
     display: grid;
     justify-items: center;
@@ -83,6 +83,31 @@ body {
     text-align: center;
     pointer-events: none;
     border: 3px solid var(--monster-doo);
+}
+
+#splash-cover {
+    display: grid;
+    font-size: 1.2rem;
+    gap: 1rem;
+    background-color: var(--monster-doo) !important;
+    color: var(--monster-glass);
+}
+
+#splash-1 {
+    animation: system-blink 1s steps(1) infinite;
+}
+
+#splash-5 {
+    color: var(--monster-bane);
+}
+
+@keyframes system-blink {
+    0% {color: var(--monster-jiarg);}
+    50% {color: var(--monster-doo);}
+}
+
+#splash-btn {
+    pointer-events: all;
 }
 
 #buggane-cover-image {
@@ -153,6 +178,7 @@ body {
 }
 
 #top-bar {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -166,18 +192,49 @@ body {
     color: var(--monster-glass);
 }
 
+#top-bar-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(105deg, rgba(51, 51, 51, .1), rgba(255, 255, 255, .2), rgba(51, 51, 51, .1), rgba(255, 255, 255, .2));
+    border-radius: inherit;
+}
+
 #title {
-    animation: type-word .6s linear;
     clip-path: rect(0 0% 100% 0);
+}
+
+.title-anim {
+    animation: type-word .6s linear;
     animation-fill-mode: forwards;
 }
 
 #hint {
     font-size: 1rem;
+    clip-path: rect(0 0% 100% 0);
+}
+
+.hint-anim {
     animation: type-word .6s linear;
     animation-delay: .6s;
-    clip-path: rect(0 0% 100% 0);
     animation-fill-mode: forwards;
+}
+
+br {
+    padding: 0;
+    margin: 0;
+}
+
+#console-arrow {
+    font-size: 1rem;
+    text-align: center;
+    line-height: .75rem;
+    color: var(--monster-doo);
+}
+
+.arrow-anim {
+    animation: blink 1s steps(1) infinite;
+    animation-delay: 1.4s;
 }
 
 #game-board {
@@ -390,6 +447,15 @@ body {
     max-width: 400px;
 }
 
+#answer-container-parent {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
 #answer-container {
     display: flex;
     flex-wrap: wrap;
@@ -399,9 +465,18 @@ body {
     max-width: 400px;
     background-color: var(--monster-doo);
     color: var(--monster-glass);
+    font-size: 1.4rem;
     height: 70px;
     width: 100%;
     border-radius: 15px;
+}
+
+#answer-container-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(105deg, rgba(51, 51, 51, .1), rgba(255, 255, 255, .2), rgba(51, 51, 51, .1));
+    border-radius: inherit;
 }
 
 .cursor-blink {
@@ -475,10 +550,9 @@ body {
     padding: 1rem 0 0;
 }
 
-#back-btn::after {
-    content: "\2B05";
-    font-size: 1.5rem;
-    color: var(--monster-jiarg);
+#back-btn {
+    width: 75px;
+    background-color: var(--monster-jiarg);
 }
 
 #ask-container {
