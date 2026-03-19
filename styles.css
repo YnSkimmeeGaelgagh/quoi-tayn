@@ -150,16 +150,48 @@ body {
     box-shadow: inset 0 0 5px var(--monster-doo);
 }
 
-.teks-orange {
-    color: var(--monster-bane);
+.clipped-text {
+    clip-path: rect(0 0% 100% 0);
+    animation: type-word .6s linear;
+    animation-fill-mode: forwards;
 }
 
 #splash-1 {
     animation: system-blink 1s steps(1) infinite;
 }
 
+#splash-3 {
+    animation-delay: .7s;
+}
+
+#splash-3 {
+    animation-delay: 1.2s;
+}
+
+#splash-4 {
+    animation-delay: 2s;
+}
+
 #splash-5 {
+    animation-delay: 2.6s;
+}
+
+#splash-6 {
     color: var(--monster-jiarg-bwee);
+    animation-delay: 3.4s;
+}
+
+#splash-7 {
+    animation-delay: 4.2s;
+}
+
+#splash-8 {
+    color: var(--monster-bane);
+    animation-delay: 5s;
+}
+
+#splash-9 {
+    animation-delay: 5.8s;
 }
 
 @keyframes system-blink {
