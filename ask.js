@@ -148,11 +148,9 @@ function openDoors (check, hit) {
 };
 
 function revealCorrect () {
-    document.body.scrollIntoView({behavior: "smooth"});
-    const targetCover = document.getElementById("target-cover");
-    setTimeout(() => {
-        targetCover.style.transform = "scaleY(0)";
-    }, 500);
+    gameBoard.scrollIntoView({behavior: "smooth"});
+    const correctElement = [...bugganeContainers.children].filter(c => c.id.includes("buggane")).filter(c => c.id.match(/[0-9]/g).join("") == correct - 1);
+    correctElement[0].classList.add("reveal-right");
 };
 
 const coverContainer = document.getElementById("cover-container");
@@ -182,19 +180,18 @@ coverContainer.addEventListener("click", hideMessage);
 
 let guess = false;
 function showMessage (reply) {
-    transmitting = false;
     document.body.style.overflow = "hidden";
     const messageCover = coverContainer.lastElementChild;
         messageCover.style.visibility = "visible";
     const messageCoverChildren = [...messageCover.children];
     const messageText = messageCoverChildren[0];
     const messageReply = messageCoverChildren[2];
-    coverContainer.style.top = window.scrollY + "px";
     coverContainer.style.visibility = "visible";
     const messageImg = document.getElementById("astro-img");
         messageImg.classList = "";
     if (reply == "Game Over!") {
         messageImg.classList.add("response");
+        console.log('here');
         messageImg.style.background = "url('images/astro-foddee.webp')";
         messageText.textContent = "Ogh!";
         messageReply.textContent = reply;
@@ -240,7 +237,10 @@ function checkBugganeyn () {
             guess = false;
             gameOver = true;
             showMessage("Transmitting...");
-            setTimeout(() => showMessage("She!"), 2000);
+            setTimeout(() => {
+                transmitting = false;
+                showMessage("She!");
+            }, 2000);
         } else {
             targetBuggane = [...document.getElementById("buggane-containers").children]
                 .filter(d => d.id.includes("buggane"))
@@ -248,18 +248,27 @@ function checkBugganeyn () {
             bugganeNumber = targetBuggane[0].id.match(/[0-9]/g).join("");
             targetDoor = document.getElementById(`cell-cover-${bugganeNumber}`);
             showMessage("Transmitting...");
-            setTimeout(() => showMessage("Cha nee!"), 2000);
+            setTimeout(() => {
+                transmitting = false;
+                showMessage("Cha nee!");
+            }, 2000);
         };
         return;
     };
     if (typeof check == "string" && bugganeyn.get(correct)[check] || typeof check == "object" && bugganeyn.get(correct)[check[0]].includes(check[1])) {
         hit = true;
         showMessage("Transmitting...");
-        setTimeout(() => showMessage("Ta!"), 2000);
+        setTimeout(() => {
+            transmitting = false;
+            showMessage("Ta!");
+        }, 2000);
     } else {
         hit = false;
         showMessage("Transmitting...");
-        setTimeout(() => showMessage("Cha nel!"), 2000);
+        setTimeout(() => {
+            transmitting = false;
+            showMessage("Cha nel!");
+        }, 2000);
     };
 };
 
@@ -298,7 +307,6 @@ function checkAnswer () {
     keywords.shift();
     check = keywords.length == 1 ? keywords[0] : keywords;
     checkBugganeyn();
-    // delete previousChoices[keywords[keywords.length - 1]];
 };
 
 const askBtn = document.getElementById("ask-btn");
