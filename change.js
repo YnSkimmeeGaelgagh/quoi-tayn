@@ -12,8 +12,6 @@ function changeQuestion () {
     answerContainer.classList.add("cursor-blink");
     firstWord = true;
     askContainer.style.visibility = "hidden";
-    const messageImg = document.getElementById("astro-img");
-        messageImg.style.background = "none";
     toggleChoiceContainer(false);
     presentOptions(descriptors);
 };
