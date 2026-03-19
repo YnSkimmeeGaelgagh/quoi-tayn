@@ -262,14 +262,11 @@ let correct = 0;
 function setCorrect() {
     correct = Math.ceil(Math.random() * bugganeyn.size);
     const correctXY = bugganeyn.get(correct).position;
-    const target = document.getElementById("target");
-    target.style.backgroundPosition = `-${correctXY[0]}px -${correctXY[1]}px`;
 };
 
 function showBuggane (event) {
     document.body.style.overflow = "hidden";
     const bugganeClicked = bugganeyn.get(parseInt(event.target.id.match(/[0-9]/g).join("")) + 1);
-    coverContainer.style.top = window.scrollY + "px";
     coverContainer.style.visibility = "visible";
     bugganeCover = coverContainer.firstElementChild;
     bugganeCover.style.visibility = "visible";
