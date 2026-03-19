@@ -10,8 +10,8 @@ bugganeyn.set(1, {
     feeacklyn: true,
     beeal: "foshlit",
     breck: false,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: false,
     guessed: false
 });
@@ -26,8 +26,8 @@ bugganeyn.set(2, {
     feeacklyn: true,
     beeal: "foshlit",
     breck: false,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: true,
     guessed: false
 });
@@ -43,7 +43,7 @@ bugganeyn.set(3, {
     beeal: "foshlit",
     breck: true,
     lurgaghyn: "liauyrey",
-    roihaghyn: "giare",
+    roihaghyn: "giarey",
     molleeyn: true,
     guessed: false
 });
@@ -58,7 +58,7 @@ bugganeyn.set(4, {
     feeacklyn: true,
     beeal: "foshlit",
     breck: true,
-    lurgaghyn: "giare",
+    lurgaghyn: "giarey",
     roihaghyn: "liauyrey",
     molleeyn: true,
     guessed: false
@@ -74,8 +74,8 @@ bugganeyn.set(5, {
     feeacklyn: false,
     beeal: "dooint",
     breck: true,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: false,
     guessed: false
 });
@@ -90,8 +90,8 @@ bugganeyn.set(6, {
     feeacklyn: true,
     beeal: "dooint",
     breck: true,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: true,
     guessed: false
 });
@@ -106,8 +106,8 @@ bugganeyn.set(7, {
     feeacklyn: false,
     beeal: "dooint",
     breck: false,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: false,
     guessed: false
 });
@@ -122,8 +122,8 @@ bugganeyn.set(8, {
     feeacklyn: true,
     beeal: "foshlit",
     breck: false,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: true,
     guessed: false
 });
@@ -138,7 +138,7 @@ bugganeyn.set(9, {
     feeacklyn: true,
     beeal: "foshlit",
     breck: false,
-    lurgaghyn: "giare",
+    lurgaghyn: "giarey",
     roihaghyn: "liauyrey",
     molleeyn: true,
     guessed: false
@@ -154,8 +154,8 @@ bugganeyn.set(10, {
     feeacklyn: true,
     beeal: "dooint",
     breck: true,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: true,
     guessed: false
 });
@@ -170,8 +170,8 @@ bugganeyn.set(11, {
     feeacklyn: false,
     beeal: "dooint",
     breck: false,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: false,
     guessed: false
 });
@@ -186,7 +186,7 @@ bugganeyn.set(12, {
     feeacklyn: true,
     beeal: "dooint",
     breck: false,
-    lurgaghyn: "giare",
+    lurgaghyn: "giarey",
     roihaghyn: "liauyrey",
     molleeyn: true,
     guessed: false
@@ -218,7 +218,7 @@ bugganeyn.set(14, {
     feeacklyn: false,
     beeal: "dooint",
     breck: true,
-    lurgaghyn: "giare",
+    lurgaghyn: "giarey",
     roihaghyn: "liauyrey",
     molleeyn: true,
     guessed: false
@@ -234,7 +234,7 @@ bugganeyn.set(15, {
     feeacklyn: false,
     beeal: "dooint",
     breck: true,
-    lurgaghyn: "giare",
+    lurgaghyn: "giarey",
     roihaghyn: "liauyrey",
     molleeyn: true,
     guessed: false
@@ -250,8 +250,8 @@ bugganeyn.set(16, {
     feeacklyn: true,
     beeal: "foshlit",
     breck: true,
-    lurgaghyn: "giare",
-    roihaghyn: "giare",
+    lurgaghyn: "giarey",
+    roihaghyn: "giarey",
     molleeyn: true,
     guessed: false
 });
