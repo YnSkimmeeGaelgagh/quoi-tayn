@@ -70,7 +70,7 @@ function toggleChoiceContainer (reveal) {
 
 function phraseComplete () {
     toggleChoiceContainer(true);
-    backBtn.style.visibility = "hidden";
+    backBtnContainer.style.display = "none";
     askContainer.style.visibility = "visible";
 };
 
@@ -98,6 +98,7 @@ function nextChoice (event) {
     presentOptions(level);
 };
 
+const backBtnContainer = document.getElementById("back-btn-container");
 const backBtn = document.getElementById("back-btn");
     backBtn.addEventListener("click", previousChoice);
 
@@ -135,8 +136,8 @@ function presentOptions (level) {
         phraseComplete();
         return;
     };
-    if (currentLevel > 0) backBtn.style.visibility = "visible";
-    else backBtn.style.visibility = "hidden";
+    if (currentLevel > 0) backBtnContainer.style.display = "block";
+    else backBtnContainer.style.display = "none";
     let targetDescriptors;
     targetDescriptors = typeof level == "string" ? [level] : Object.keys(level);
     currentChoices = level;
