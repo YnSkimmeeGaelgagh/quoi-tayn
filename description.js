@@ -103,7 +103,6 @@ const backBtn = document.getElementById("back-btn");
     backBtn.addEventListener("click", previousChoice);
 
 function previousChoice (event) {
-    console.log(event.target)
     event.target.classList.add("pressed-btn");
     setTimeout(() => {
         currentLevel--;
@@ -116,6 +115,7 @@ function previousChoice (event) {
                 choiceContainer.textContent = "";
                 loadedCheck.splice(currentLevel, 1);
                 presentOptions(previousChoices[currentLevel - 1]);
+                previousChoices.pop();
         };
         event.target.classList.remove("pressed-btn");
     }, 300);
