@@ -39,15 +39,15 @@ body {
 #content {
     position: relative;
     width: 600px;
-    height: 1400px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    padding-bottom: 1rem;
     background-image: linear-gradient(110deg, var(--monster-lheeah), var(--monster-bane), var(--monster-lheeah));
 }
 
-#content-border {
+.cover-border {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -58,12 +58,12 @@ body {
 
 #cover-container {
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     display: grid;
     justify-items: center;
     align-items: center;
     background-color: rgba(51, 51, 51, .9);
-    width: 100%;
+    width: 100dvw;
     height: 100dvh;
     z-index: 1000;
 }
@@ -86,19 +86,46 @@ body {
 }
 
 #splash-container {
-    position: absolute;
-    display: grid;
-    justify-items: center;
+    position: fixed;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-color: rgba(51, 51, 51, .9);
-    width: 100%;
+    width: 100dvw;
     height: 100dvh;
     z-index: 1000;
+    background-color: rgba(51, 51, 51, .9);
 }
 
 #splash-cover {
+    position: relative;
+    width: 600px;
+    height: 100%;
     grid-column: 1;
     grid-row: 1;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(110deg, var(--monster-lheeah), var(--monster-bane), var(--monster-lheeah));
+}
+
+#splash-console {
+    font-size: 2rem;
+    filter: drop-shadow(1px 1px 1px var(--monster-doo));
+    color: var(--monster-lheeah);
+}
+
+#splash-message-cover {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(105deg, rgba(51, 51, 51, .1), rgba(255, 255, 255, .2), rgba(51, 51, 51, .1), rgba(255, 255, 255, .2));
+    border-radius: inherit;
+}
+
+#splash-message {
     align-items: center;
     display: grid;
     font-size: 1.2rem;
@@ -107,10 +134,24 @@ body {
     padding: 1rem;
     background-color: var(--monster-doo);
     color: var(--monster-glass);
+    border: 6px solid var(--monster-lheeah);
+    box-shadow: -5px 5px 10px var(--monster-doo);
     border-radius: 15px;
     text-align: center;
     pointer-events: none;
-    border: 3px solid var(--monster-doo);
+}
+
+#splash-button-container {
+    padding: 1rem;
+    margin-top: 2rem;
+    width: 60%;
+    border-top: 2px solid black;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px var(--monster-doo);
+}
+
+.teks-orange {
+    color: var(--monster-bane);
 }
 
 #splash-1 {
@@ -118,7 +159,7 @@ body {
 }
 
 #splash-5 {
-    color: var(--monster-bane);
+    color: var(--monster-jiarg-bwee);
 }
 
 @keyframes system-blink {
@@ -205,6 +246,7 @@ body {
     align-items: center;
     gap: .5rem;
     font-size: 1.5rem;
+    margin-top: 2rem;
     padding: 1rem;
     border: 2px solid var(--monster-doo);
     border-radius: 15px;
@@ -560,17 +602,21 @@ br {
     width: 100%;
     max-width: 400px;
     justify-items: center;
+    align-content: start;
     border-top: 2px solid black;
+    height: 600px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px var(--monster-doo);
 }
 
 #back-btn-container {
-    visibility: hidden;
     grid-column: 1;
     grid-row: 1;
     padding: 1rem 0 0;
 }
 
 #back-btn {
+    font-family: Arial, Helvetica, sans-serif;
     width: 75px;
     background-color: var(--monster-jiarg);
 }
@@ -626,11 +672,16 @@ br {
     background-color: var(--monster-jiarg);
 }
 
-@media only screen and (min-width: 600px) {
+.reveal-right {
+    animation: right 1s steps(1) infinite;
+}
 
-    #content {
-        height: 1500px;
-    }
+@keyframes right {
+    0% {outline: 9px solid rgba(0, 200, 0, .6);}
+    50% {outline: none;}
+}
+
+@media only screen and (min-width: 600px) {
 
     #target-container {
         grid-template-columns: var(--monster-large);
