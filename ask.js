@@ -246,6 +246,8 @@ function checkBugganeyn () {
             showMessage("Transmitting...");
             setTimeout(() => {
                 transmitting = false;
+                const she = new Audio("audio/she.mp3");
+                she.play();
                 showMessage("She!");
             }, 2000);
         } else {
@@ -257,6 +259,8 @@ function checkBugganeyn () {
             showMessage("Transmitting...");
             setTimeout(() => {
                 transmitting = false;
+                const chaNee = new Audio("audio/cha-nee.mp3");
+                chaNee.play();
                 showMessage("Cha nee!");
             }, 2000);
         };
@@ -267,6 +271,8 @@ function checkBugganeyn () {
         showMessage("Transmitting...");
         setTimeout(() => {
             transmitting = false;
+            const ta = new Audio("audio/ta.mp3");
+            ta.play();
             showMessage("Ta!");
         }, 2000);
     } else {
@@ -274,6 +280,8 @@ function checkBugganeyn () {
         showMessage("Transmitting...");
         setTimeout(() => {
             transmitting = false;
+            const chaNel = new Audio("audio/cha-nel.mp3");
+            chaNel.play();
             showMessage("Cha nel!");
         }, 2000);
     };
