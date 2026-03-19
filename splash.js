@@ -6,6 +6,8 @@ let gameStarted = false;
 const splashContainer = document.getElementById("splash-container");
 
 function startGame (event) {
+    const sciStart = new Audio("audio/sci-start.mp3");
+    sciStart.play();
     event.target.classList.add("pressed-btn");
     setTimeout(() => {
         splashContainer.style.visibility = "hidden";
