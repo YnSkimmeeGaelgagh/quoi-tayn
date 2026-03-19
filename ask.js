@@ -133,6 +133,7 @@ function openDoors (check, hit) {
             if (!gameOver) changeQuestion();
             return;
         };
+        buggane.parentElement.removeEventListener("click", showBuggane);
         buggane.nextElementSibling.style.color = "var(--monster-doo)";
         buggane.classList.add("got");
         bugganeyn.get(parseInt(buggane.id.match(/[0-9]/g).join("")) + 1).guessed = true;
@@ -148,7 +149,13 @@ function openDoors (check, hit) {
 };
 
 function revealCorrect () {
-    gameBoard.scrollIntoView({behavior: "smooth"});
+    const title = document.getElementById("title");
+        title.style.fontSize = "1rem";
+        title.textContent = `She ${bugganeyn.get(correct).ennym} v'ayn!`;
+    const hint = document.getElementById("hint");
+        hint.textContent = "[play again]";
+        hint.style.color = "var(--monster-jiarg-bwee)";
+    content.scrollIntoView({behavior: "smooth"});
     const correctElement = [...bugganeContainers.children].filter(c => c.id.includes("buggane")).filter(c => c.id.match(/[0-9]/g).join("") == correct - 1);
     correctElement[0].classList.add("reveal-right");
 };
@@ -190,8 +197,9 @@ function showMessage (reply) {
     const messageImg = document.getElementById("astro-img");
         messageImg.classList = "";
     if (reply == "Game Over!") {
+        const gameOverSFX = new Audio("audio/game-over.mp3");
+        gameOverSFX.play();
         messageImg.classList.add("response");
-        console.log('here');
         messageImg.style.background = "url('images/astro-foddee.webp')";
         messageText.textContent = "Ogh!";
         messageReply.textContent = reply;
@@ -209,17 +217,16 @@ function showMessage (reply) {
                 messageImg.style.background = "url('images/signal.webp')";
                 messageReply.style.color = "var(--monster-doo)";
                 break;
-            case "Ta!":
-                messageImg.classList.add("response");
-                messageImg.style.background = "url('images/astro-kiart.webp')";
-                messageReply.style.color = "var(--monster-gorrym)";
-                break;
             case "She!":
+                const kiart = new Audio("audio/kiart.mp3");
+                kiart.play();
                 messageImg.classList.add("response");
                 messageImg.style.background = "url('images/astro-kiart.webp')";
                 messageReply.style.color = "var(--monster-gorrym)";
                 break;
             default:
+                const guess = new Audio("audio/guess.mp3");
+                guess.play();
                 messageImg.classList.add("response");
                 messageImg.style.background = "url('images/astro-neu.webp')";
                 messageReply.style.color = "var(--monster-gorrym)";
