@@ -78,7 +78,6 @@ let firstWord = true;
 function nextChoice (event) {
     const des = event.target;
     des.classList = "";
-    des.removeEventListener("click", nextChoice);
     const audio = new Audio(`audio/${des.textContent.endsWith("?") ? des.textContent.slice(0, -1) : des.textContent}.mp3`);
     audio.play();
     let choiceText = des.textContent;
@@ -122,6 +121,7 @@ function previousChoice (event) {
 };
 
 function animateButton (event) {
+    event.target.removeEventListener("click", animateButton);
     event.target.classList.add("pressed-btn");
     setTimeout(() => nextChoice(event), 300);
 };
