@@ -233,6 +233,13 @@ function showMessage (reply) {
                 messageImg.style.background = "url('images/astro-kiart.webp')";
                 messageReply.style.color = "var(--monster-gorrym)";
                 break;
+            case "Cha nee!":
+                const neuChiart = new Audio("audio/neuchiart.mp3");
+                neuChiart.play();
+                messageImg.classList.add("response");
+                messageImg.style.background = "url('images/astro-neu.webp')";
+                messageReply.style.color = "var(--monster-jiarg)";
+                break;
             case "Ship energy low!":
                 const warning = new Audio("audio/warning.mp3");
                 warning.play();
