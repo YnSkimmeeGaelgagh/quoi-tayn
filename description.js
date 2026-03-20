@@ -95,6 +95,7 @@ function nextChoice (event) {
     previousChoices.push(level);
     currentLevel++;
     presentOptions(level);
+    choiceContainer.style.pointerEvents = "auto";
 };
 
 const backBtnContainer = document.getElementById("back-btn-container");
@@ -121,6 +122,7 @@ function previousChoice (event) {
 };
 
 function animateButton (event) {
+    choiceContainer.style.pointerEvents = "none";
     event.target.removeEventListener("click", animateButton);
     event.target.classList.add("pressed-btn");
     setTimeout(() => nextChoice(event), 300);
