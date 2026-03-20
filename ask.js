@@ -3,6 +3,7 @@ let gameOver = false;
 let transmitting = false;
 let targetBuggane;
 let bugganeNumber = -1;
+let lastLife = false;
 
 const lives = [...document.getElementById("life-bar").children];
 let lifeCount = lives.length - 1;
@@ -25,7 +26,7 @@ function checkRemaining (check) {
     const remainingDescriptors = {
         names: []
     };
-    Object.entries(descriptors["Vel"]).forEach(d => {
+    if (!lastLife) Object.entries(descriptors["Vel"]).forEach(d => {
         if (typeof d[1] == "string") remainingDescriptors[d[0]] = 0;
         else if (typeof d[1] == "object") {
             remainingDescriptors[d[0]] = {};
@@ -71,26 +72,28 @@ function checkRemaining (check) {
     Object.keys(descriptors["Nee"]).forEach(k => {
         if (!remainingDescriptors.names.includes(k)) delete descriptors["Nee"][k];
     });
-    Object.entries(remainingDescriptors).forEach(rd => {
+    if (!lastLife) {
+        Object.entries(remainingDescriptors).forEach(rd => {
         if (typeof rd[1] == "number" && Math.abs(rd[1]) == totalRemaining) delete descriptors["Vel"][rd[0]];
         else if (typeof rd[1] == "object") {
             Object.keys(rd[1]).forEach(v => {
                 if (remainingDescriptors[rd[0]][v] == false) delete descriptors["Vel"][rd[0]][v];
             });
         };
-    });
-    const eyesGone = ("tree" in remainingDescriptors && !remainingDescriptors["tree"]["sooillyn"]) || ("daa" in remainingDescriptors && !remainingDescriptors["daa"]["hooill"]);
-    Object.entries(descriptors["Vel"]).forEach(c => {
-        if (typeof c[1] == "object" && Object.keys(c[1]).length < 2) {
-            switch (true) {
-                case "hooill" in c[1] || "sooillyn" in c[1]:
-                    if (eyesGone) delete descriptors["Vel"][c[0]];
-                    break;
-                default:
-                    delete descriptors["Vel"][c[0]];
+        });
+        const eyesGone = ("tree" in remainingDescriptors && !remainingDescriptors["tree"]["sooillyn"]) || ("daa" in remainingDescriptors && !remainingDescriptors["daa"]["hooill"]);
+        Object.entries(descriptors["Vel"]).forEach(c => {
+            if (typeof c[1] == "object" && Object.keys(c[1]).length < 2) {
+                switch (true) {
+                    case "hooill" in c[1] || "sooillyn" in c[1]:
+                        if (eyesGone) delete descriptors["Vel"][c[0]];
+                        break;
+                    default:
+                        delete descriptors["Vel"][c[0]];
+                };
             };
-        };
-    });
+        });
+    } else delete descriptors["Vel"];
 };
 
 function openDoors (check, hit) {
@@ -168,6 +171,8 @@ const coverContainer = document.getElementById("cover-container");
 const gameBoard = document.getElementById("game-board");
 
 function hideMessage () {
+    const messageCover = document.getElementById("message-cover");
+    messageCover.classList.remove("warning-light");
     if (transmitting || !gameStarted) return;
     if (gameOver) {
         answerContainer.textContent = "";
@@ -227,6 +232,16 @@ function showMessage (reply) {
                 messageImg.classList.add("response");
                 messageImg.style.background = "url('images/astro-kiart.webp')";
                 messageReply.style.color = "var(--monster-gorrym)";
+                break;
+            case "Ship energy low!":
+                const warning = new Audio("audio/warning.mp3");
+                warning.play();
+                messageImg.classList.add("response");
+                messageImg.style.background = "url('images/last-life.webp')";
+                messageImg.style.backgroundRepeat = "no-repeat";
+                messageText.textContent = "";
+                messageReply.style.color = "var(--monster-jiarg)";
+                messageCover.classList.add("warning-light");
                 break;
             default:
                 const guess = new Audio("audio/guess.mp3");
@@ -303,6 +318,8 @@ function loseLife () {
             break;
         case 0:
             lives.forEach(l => l.style.backgroundColor = "var(--monster-jiarg");
+            lastLife = true;
+            showMessage("Ship energy low!")
             break;
         case -1:
             gameOver = true;
