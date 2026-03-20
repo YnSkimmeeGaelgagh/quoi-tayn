@@ -149,6 +149,10 @@ function openDoors (check, hit) {
 };
 
 function revealCorrect () {
+    const topBar = document.getElementById("top-bar");
+        topBar.addEventListener("click", () => {
+            location.reload();
+        });
     const title = document.getElementById("title");
         title.style.fontSize = "1rem";
         title.textContent = `She ${bugganeyn.get(correct).ennym} v'ayn!`;
