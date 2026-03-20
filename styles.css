@@ -267,6 +267,15 @@ body {
     100% {background-position-x: -600px;}
 }
 
+.warning-light {
+    animation: warning-light 1s steps(1) infinite !important;
+}
+
+@keyframes warning-light {
+    0% {box-shadow: 0 0 50px var(--monster-jiarg);}
+    50% {box-shadow: 0 0 50px transparent;}
+}
+
 #message-reply {
     font-size: 2rem;
 }
